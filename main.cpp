@@ -6,6 +6,8 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(512, 512), "SFML Tutorial",
                             sf::Style::Close | sf::Style::Resize);
+    sf::RectangleShape player(sf::Vector2f(100.0f, 100.0f));
+    player.setFillColor(sf::Color::Green);
 
     while (window.isOpen()){
         sf::Event evt;
@@ -26,6 +28,8 @@ int main()
                     break;
             }
         }
+        window.draw(player);
+        window.display();
     }
 
     return 0;
