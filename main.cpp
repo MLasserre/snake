@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
+#include <stdio.h>
 
 int main()
 {
@@ -17,6 +18,11 @@ int main()
                     std::cout << "New window width: " << evt.size.width
                               << " New window height: " <<  evt.size.height
                               << std::endl;
+                    break;
+                case sf::Event::TextEntered:
+                    if (evt.text.unicode < 128){
+                        printf("%c\n", evt.text.unicode);
+                    }
                     break;
             }
         }
