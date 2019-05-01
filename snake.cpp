@@ -6,11 +6,18 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(512, 512), "SFML Tutorial",
                             sf::Style::Close | sf::Style::Resize);
-    sf::RectangleShape player(sf::Vector2f(100.0f, 100.0f));
+    sf::RectangleShape player(sf::Vector2f(59.0f, 85.0f));
     player.setPosition(206.0f, 206.0f);
     sf::Texture playerTexture;
-    playerTexture.loadFromFile("sprites/idle_1.png");
+    playerTexture.loadFromFile("sprites/dino_sprite_sheet.png");
     player.setTexture(&playerTexture);
+
+    sf::Vector2u textureSize = playerTexture.getSize();
+    textureSize.x /= 12;
+    textureSize.y /= 5;
+
+    player.setTextureRect(sf::IntRect(textureSize.x *11, textureSize.y * 2,
+                                      textureSize.x   , textureSize.y     ));
     //player.setOrigin(50.0f, 50.0f);
     //player.setFillColor(sf::Color::Green);
 
