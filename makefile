@@ -7,7 +7,7 @@ CFLAGS = -Wextra -W -Wall -Wunused -Wshadow -Wconversion \
 
 # sources-------------Editer les 2 lignes ci-dessous-------
 MAIN= main.cpp
-SUB= 
+SUB= game.cpp
 #----------------------------------------------------------
 HEAD = $(SUB:.cpp=.h)
 OBJ_MAIN = $(MAIN:.cpp=.o)
