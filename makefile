@@ -6,7 +6,7 @@ CFLAGS = -Wextra -W -Wall -Wunused -Wshadow -Wconversion \
          -ffloat-store -pedantic
 
 # sources-------------Editer les 2 lignes ci-dessous-------
-MAIN= snake.cpp
+MAIN= main.cpp
 SUB= 
 #----------------------------------------------------------
 HEAD = $(SUB:.cpp=.h)
