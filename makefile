@@ -3,7 +3,7 @@ CC = g++
 LD = g++
 LIBS= -lsfml-graphics -lsfml-window -lsfml-system -lpthread -lm
 CFLAGS = -Wextra -W -Wall -Wunused -Wshadow -Wconversion \
-         -ffloat-store -pedantic
+         -ffloat-store -pedantic -std=c++11
 
 # sources-------------Editer les 2 lignes ci-dessous-------
 MAIN= main.cpp
