@@ -11,7 +11,7 @@ class Game
 
     private:
         void             processEvents();
-        void             update();
+        void             update(sf::Time deltaTime);
         void             render();
 
         void             handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
@@ -19,11 +19,14 @@ class Game
     private:
         sf::RenderWindow mWindow;
         sf::CircleShape  mPlayer;
+        const sf::Time   TimePerFrame   = sf::seconds(1.f / 60.f);
 
-        bool mIsMovingUp    = false;
-        bool mIsMovingDown  = false;
-        bool mIsMovingLeft  = false;
-        bool mIsMovingRight = false;
+        float            PlayerSpeed    = 100.f;
+
+        bool             mIsMovingUp    = false;
+        bool             mIsMovingDown  = false;
+        bool             mIsMovingLeft  = false;
+        bool             mIsMovingRight = false;
 
 };
 

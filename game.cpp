@@ -11,9 +11,16 @@ Game::Game()
 
 void Game::run()
 {
+    sf::Clock clock;
+    sf::Time timeSinceLastUpdate = sf::Time::Zero;
     while (mWindow.isOpen()) {
         processEvents();
-        update();
+        timeSinceLastUpdate += clock.restart();
+        while (timeSinceLastUpdate > TimePerFrame) {
+            timeSinceLastUpdate -= TimePerFrame;
+            processEvents();
+            update(TimePerFrame);
+        }
         render();
     }
 }
@@ -38,19 +45,19 @@ void Game::processEvents()
     }
 }
 
-void Game::update() 
+void Game::update(sf::Time deltaTime) 
 {
     sf::Vector2f movement(0.f, 0.f);
     if (mIsMovingUp)
-        movement.y -= 1.f;
+        movement.y -= PlayerSpeed;
     if (mIsMovingDown)
-        movement.y += 1.f;
+        movement.y += PlayerSpeed;
     if (mIsMovingLeft)
-        movement.x -= 1.f;
+        movement.x -= PlayerSpeed;
     if (mIsMovingRight)
-        movement.x += 1.f;
+        movement.x += PlayerSpeed;
 
-    mPlayer.move(movement);
+    mPlayer.move(movement * deltaTime.asSeconds());
 }
 
 void Game::render()
