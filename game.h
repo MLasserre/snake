@@ -6,28 +6,28 @@
 class Game
 {
     public: 
-                         Game();
-        void             run();
+                              Game();
+        void                  run();
 
     private:
-        void             processEvents();
-        void             update(sf::Time deltaTime);
-        void             render();
+        void                  processEvents();
+        void                  update(sf::Time deltaTime);
+        void                  render();
 
-        void             handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
+        void                  handlePlayerInput(sf::Keyboard::Key key,
+                                                bool isPressed);
 
     private:
-        sf::RenderWindow mWindow;
-        sf::CircleShape  mPlayer;
-        const sf::Time   TimePerFrame   = sf::seconds(1.f / 60.f);
+        static const float    PlayerSpeed;
+        static const sf::Time TimePerFrame;
 
-        float            PlayerSpeed    = 100.f;
+        sf::RenderWindow      mWindow;
+        sf::CircleShape       mPlayer;
 
-        bool             mIsMovingUp    = false;
-        bool             mIsMovingDown  = false;
-        bool             mIsMovingLeft  = false;
-        bool             mIsMovingRight = false;
-
+        bool                  mIsMovingUp    = false;
+        bool                  mIsMovingDown  = false;
+        bool                  mIsMovingLeft  = false;
+        bool                  mIsMovingRight = false;
 };
 
 #endif // GAME_H
