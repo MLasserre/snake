@@ -14,7 +14,6 @@ void Game::run()
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
     while (mWindow.isOpen()) {
-        processEvents();
         timeSinceLastUpdate += clock.restart();
         while (timeSinceLastUpdate > TimePerFrame) {
             timeSinceLastUpdate -= TimePerFrame;
