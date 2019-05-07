@@ -1,4 +1,4 @@
-Snake codé en C++ avec SFML
+Apprentissage de SFML avec le livre SFML Game Development.
 
 Pour compiler :
 g++ -c main.cpp
