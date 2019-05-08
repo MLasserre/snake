@@ -11,9 +11,10 @@ class Game
 
     private:
         void                  processEvents();
-        void                  update(sf::Time deltaTime);
+        void                  update(sf::Time elapsedTime);
         void                  render();
 
+        void                  updateStatistics(sf::Time elapsedTime);
         void                  handlePlayerInput(sf::Keyboard::Key key,
                                                 bool isPressed);
 
@@ -22,13 +23,19 @@ class Game
         static const sf::Time TimePerFrame;
 
         sf::RenderWindow      mWindow;
+
         sf::Texture           mTexture;
         sf::Sprite            mPlayer;
 
-        bool                  mIsMovingUp    = false;
-        bool                  mIsMovingDown  = false;
-        bool                  mIsMovingLeft  = false;
-        bool                  mIsMovingRight = false;
+        sf::Font              mFont;
+        sf::Text              mStatisticsText;
+        sf::Time              mStatisticsUpdateTime;
+        std::size_t           mStatisticsNumFrames  = 0;
+
+        bool                  mIsMovingUp           = false;
+        bool                  mIsMovingDown         = false;
+        bool                  mIsMovingLeft         = false;
+        bool                  mIsMovingRight        = false;
 };
 
 #endif // GAME_H
